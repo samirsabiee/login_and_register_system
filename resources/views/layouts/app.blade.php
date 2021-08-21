@@ -15,8 +15,11 @@
 @include('partials.navbar')
 @if(session('MustVerifyEmail'))
     <h6 class="alert alert-danger text-center">
-        @lang('public.must email verified')
+        @lang('public.must email verified',['link'=> route('auth.email.send.verification')])
     </h6>
+@endif
+@if(session('verificationEmailSent'))
+    <div class="alert alert-success text-center">@lang('public.verificationEmailSent')</div>
 @endif
 <div class="container">
     @yield('content')
