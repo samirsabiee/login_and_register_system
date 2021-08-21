@@ -33,5 +33,6 @@ return [
     'failed' => 'عملیات با شکست مواجه شد',
     'registered' => 'ثبت نام با موفقیت انجام شد',
     'wrongCredentials' => 'ایمیل یا رمز عبور شما نادرست است',
-    'verificationEmailSent' => 'ایمیل تاییده با موفقیت ارسال شد.'
+    'verificationEmailSent' => 'ایمیل تاییده با موفقیت ارسال شد.',
+    'emailHasVerified' => 'ایمیل شما با موفقیت تایید شد.'
 ];
