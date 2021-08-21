@@ -20,7 +20,15 @@
                 </div>
             @endguest
             @auth
-                <p>welcome Dear!</p>
+                <div class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                       data-bs-toggle="dropdown" aria-expanded="false">
+                        {{ auth()->user()->name }}
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="{{ route('auth.logout') }}">{{ __('public.logout')  }}</a></li>
+                    </ul>
+                </div>
             @endauth
         </div>
     </div>
