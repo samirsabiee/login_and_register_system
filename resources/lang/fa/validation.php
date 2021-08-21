@@ -156,6 +156,7 @@ return [
         'password_confirmation' => 'تکرار رمز عبور',
         'country'               => 'کشور',
         'mobile'                => 'شماره همراه',
+        'phone_number'                => 'شماره تماس',
         'age'                   => 'سن',
         'sex'                   => 'جنسیت',
         'gender'                => 'جنسیت',
