@@ -47,6 +47,6 @@ class User extends Authenticatable
 
     public function sendEmailVerificationNotification()
     {
-        SendEmail::dispatch(new \App\Services\Providers\SendEmail($this, new VerificationEmail()));
+        SendEmail::dispatch(new \App\Services\Providers\SendEmail($this, new VerificationEmail($this)));
     }
 }
