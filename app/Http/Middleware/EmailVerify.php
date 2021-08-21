@@ -17,7 +17,7 @@ class EmailVerify
     public function handle(Request $request, Closure $next)
     {
         if ($request->user() && !$request->user()->hasVerifiedEmail()) {
-            session()->flash('MustVerifyEmail', true);
+            session()->flash('mustVerifyEmail', true);
         }
         return $next($request);
     }
