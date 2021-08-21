@@ -39,7 +39,7 @@ class VerificationController extends Controller
     {
         $this->middleware('auth');
         $this->middleware('signed')->only('verify');
-        $this->middleware('throttle:1,1')->only('verify', 'send');
+        $this->middleware('throttle:6,1')->only('verify', 'send');
     }
 
     public function send(): RedirectResponse
@@ -49,5 +49,15 @@ class VerificationController extends Controller
         }
         auth()->user()->sendEmailVerificationNotification();
         return back()->with('verificationEmailSent', true);
+    }
+
+    public function verify(Request $request)
+    {
+        if ($request->user()->hasVerifiedEmail()) {
+            return redirect()->route('home');
+        }
+        $request->user()->markEmailAsVerified();
+        session()->forget('mustVerifyEmail');
+        return redirect()->route('home')->with('emailHasVerified', true);
     }
 }
