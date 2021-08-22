@@ -29,17 +29,24 @@
                             </div>
 
                             <div class="form-check mb-3">
-                                <input class="form-check-input" type="checkbox" value="true" id="remember" name="remember">
+                                <input class="form-check-input" type="checkbox" value="true" id="remember"
+                                       name="remember">
                                 <label class="form-check-label" for="remember">
                                     {{ __('public.remember') }}
                                 </label>
                             </div>
 
+                            <a href="{{ route('auth.password.forget.form') }}"
+                               class="mt-3">@lang('public.forget')</a>
+                            <br>
+
                             @include('partials.validation-errors')
 
 
-                            <input type="submit" value="{{ __('public.login') }}"
-                                   class="btn btn-pill text-white btn-block btn-primary">
+                            <div class="mt-3">
+                                <input type="submit" value="{{ __('public.login') }}"
+                                       class="btn btn-pill text-white btn-block btn-primary">
+                            </div>
 
                             <span class="d-block text-center my-4 text-muted">{{ __('public.sign_with') }}</span>
 
