@@ -34,5 +34,12 @@ return [
     'registered' => 'ثبت نام با موفقیت انجام شد',
     'wrongCredentials' => 'ایمیل یا رمز عبور شما نادرست است',
     'verificationEmailSent' => 'ایمیل تاییده با موفقیت ارسال شد.',
-    'emailHasVerified' => 'ایمیل شما با موفقیت تایید شد.'
+    'emailHasVerified' => 'ایمیل شما با موفقیت تایید شد.',
+    'Reset Password' => 'بازیابی رمز عبور',
+    'E-Mail Address' => 'آدرس  ایمیل',
+    'Send Password Reset Link' => 'ارسال لینک بازیابی رمز عبور',
+    'resetLinkSent' => 'ایمیل بازیابی رمز عبور ارسال شد.',
+    'resetLinkSendFailed' => 'ارسال ایمیل بازیابی رمز عبور با شکست مواجه شد. لطفا مدتی بعد تلاش فرمایید',
+    'passwordChanged' => 'رمز عبور با موفقیت تغییر کرد',
+    'cantChangePassword' => 'تغییر رمز عبور با شکست مواجه شد.',
 ];
