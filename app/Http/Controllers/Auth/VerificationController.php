@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
+use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Foundation\Auth\VerifiesEmails;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -51,8 +52,14 @@ class VerificationController extends Controller
         return back()->with('verificationEmailSent', true);
     }
 
+    /**
+     * @throws AuthorizationException
+     */
     public function verify(Request $request)
     {
+        if (auth()->user()->email !== $request->query('email')) {
+            throw new AuthorizationException;
+        }
         if ($request->user()->hasVerifiedEmail()) {
             return redirect()->route('home');
         }
