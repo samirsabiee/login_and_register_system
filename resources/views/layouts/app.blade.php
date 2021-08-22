@@ -37,12 +37,17 @@
     <div class="alert alert-success text-center">@lang('public.resetLinkSent')</div>
 @endif
 
-
-
 @if(session('resetLinkSendFailed'))
     <div class="alert alert-danger text-center">@lang('public.resetLinkSendFailed')</div>
 @endif
 
+@if(session('magicLinkSent'))
+    <div class="alert alert-success text-center">@lang('public.magicLinkSent')</div>
+@endif
+
+@if(session('invalidToken'))
+    <div class="alert alert-danger text-center">@lang('public.invalidToken')</div>
+@endif
 
 
 <div class="container">
