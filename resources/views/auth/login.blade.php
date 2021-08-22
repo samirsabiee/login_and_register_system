@@ -15,6 +15,7 @@
                     <div class="form-block">
                         <div class="mb-4">
                             <h3 class="text-center">{{ __('public.login') }}</h3>
+                            <h6 class="text-center"><a href="{{ route('auth.magic.login.form') }}">@lang('public.login without pass')</a></h6>
                         </div>
                         <form action="{{ route('auth.login') }}" method="post">
                             @csrf
