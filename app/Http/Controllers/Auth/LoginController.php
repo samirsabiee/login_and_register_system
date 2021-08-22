@@ -58,10 +58,10 @@ class LoginController extends Controller
     /**
      * @throws ValidationException
      */
-    protected function login(LoginRequest $request)
+    protected function login(LoginRequest $request): RedirectResponse
     {
         if ($this->hasTooManyLoginAttempts($request)) {
-            return $this->sendLockoutResponse($request);
+            $this->sendLockoutResponse($request);
         }
         if ($this->attemptLogin($request)) {
             return $this->sendLoginSuccessResponse();
