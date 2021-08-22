@@ -145,6 +145,7 @@ return [
     */
 
     'attributes' => [
+        'g-recaptcha-response'  => 'تیک من ربات نیستم',
         'message'                      => 'متن پیام کوتاه',
         'name'                  => 'نام',
         'family'                => 'نام خانوادگی',
