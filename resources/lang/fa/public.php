@@ -46,4 +46,6 @@ return [
     'Magic link' => 'ارسال لینک جادویی',
     'Send Link' => 'ارسال لینک',
     'login without pass' => 'ورود بدون رمز',
+    'magicLinkSent' => 'لینک جادویی ورود ارسال شد',
+    'invalidToken' => 'لینک ورود معتبر نیست',
 ];
