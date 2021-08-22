@@ -3,6 +3,7 @@
 @section('css_links')
     <link rel="stylesheet" href="{{ asset('assets/css/login/owl.carousel.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/login/style.css') }}">
+    <script src="https://www.google.com/recaptcha/api.js?hl=fa" async defer></script>
 @endsection
 
 @section('content')
@@ -26,6 +27,10 @@
                                 <label for="password">{{ __('public.password') }}</label>
                                 <input type="password" class="form-control" id="password" name="password">
 
+                            </div>
+
+                            <div class="offset-sm-3">
+                                @include('partials.recaptcha')
                             </div>
 
                             <div class="form-check mb-3">
