@@ -43,4 +43,7 @@ return [
     'passwordChanged' => 'رمز عبور با موفقیت تغییر کرد',
     'cantChangePassword' => 'تغییر رمز عبور با شکست مواجه شد.',
     'recaptcha' => 'لطفا تیک من ربات نیستم را بزنید',
+    'Magic link' => 'ارسال لینک جادویی',
+    'Send Link' => 'ارسال لینک',
+    'login without pass' => 'ورود بدون رمز',
 ];
