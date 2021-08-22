@@ -7,3 +7,9 @@
 @elseif(session('wrongCredentials'))
     <div class="alert alert-danger">@lang('public.wrongCredentials')</div>
 @endif
+@if(session('passwordChanged'))
+    <div class="alert alert-success">@lang('public.passwordChanged')</div>
+@endif
+@if(session('cantChangePassword'))
+    <div class="alert alert-danger">@lang('public.cantChangePassword')</div>
+@endif
