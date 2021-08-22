@@ -30,5 +30,6 @@ Route::group(['prefix' => 'auth', 'namespace' => 'Auth'], function () {
     Route::post('password/reset', 'ResetPasswordController@reset')->name('auth.password.reset');
     Route::get('redirect/{provider}', 'SocialController@redirectToProvider')->name('auth.login.provider');
     Route::get('{provider}/callback', 'SocialController@providerCallback')->name('auth.login.provider.callback');
+    Route::get('magic/login', 'MagicController@showMagicForm')->name('auth.magic.login.form');
 });
 
