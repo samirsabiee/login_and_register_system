@@ -55,15 +55,16 @@
 
                             <span class="d-block text-center my-4 text-muted">{{ __('public.sign_with') }}</span>
 
-                            <div class="social-login text-center">
-                                <a href="#" class="facebook">
+                            <div class="social-login d-flex flex-row justify-content-center align-items-center">
+                                <a href="#" class="facebook m-2">
                                     <span class="icon-facebook mr-3"></span>
                                 </a>
-                                <a href="#" class="twitter">
+                                <a href="#" class="twitter m-2">
                                     <span class="icon-twitter mr-3"></span>
                                 </a>
-                                <a href="#" class="google">
-                                    <span class="icon-google mr-3"></span>
+                                <a href="{{ route('auth.login.provider','google') }}"
+                                   class="google m-2 d-flex flex-row justify-content-center align-items-center">
+                                    <i class="bi bi-google"></i>
                                 </a>
                             </div>
                         </form>
