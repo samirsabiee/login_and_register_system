@@ -13,17 +13,37 @@
 </head>
 <body>
 @include('partials.navbar')
+
+
 @if(session('mustVerifyEmail'))
     <h6 class="alert alert-danger text-center">
         @lang('public.must email verified',['link'=> route('auth.email.send.verification')])
     </h6>
 @endif
+
+
 @if(session('verificationEmailSent'))
     <div class="alert alert-success text-center">@lang('public.verificationEmailSent')</div>
 @endif
+
+
 @if(session('emailHasVerified'))
     <div class="alert alert-success text-center">@lang('public.emailHasVerified')</div>
 @endif
+
+
+@if(session('resetLinkSent'))
+    <div class="alert alert-success text-center">@lang('public.resetLinkSent')</div>
+@endif
+
+
+
+@if(session('resetLinkSendFailed'))
+    <div class="alert alert-danger text-center">@lang('public.resetLinkSendFailed')</div>
+@endif
+
+
+
 <div class="container">
     @yield('content')
 </div>
