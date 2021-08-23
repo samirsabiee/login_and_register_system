@@ -36,5 +36,6 @@ Route::group(['prefix' => 'auth', 'namespace' => 'Auth'], function () {
     Route::get('two-factor/toggle', 'TwoFactorController@showToggleForm')->name('auth.two.factor.toggle.form');
     Route::get('two-factor/activate', 'TwoFactorController@activate')->name('auth.two.factor.activate');
     Route::get('two-factor/code', 'TwoFactorController@showEnterCodeForm')->name('auth.two.factor.code.form');
+    Route::post('two-factor/code', 'TwoFactorController@confirmCode')->name('auth.two.factor.code');
 });
 
