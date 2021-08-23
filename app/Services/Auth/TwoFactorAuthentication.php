@@ -43,6 +43,11 @@ class TwoFactorAuthentication
         return self::ACTIVATED;
     }
 
+    public function deactivate(User $user)
+    {
+        $user->deactivateTwoFactor();
+    }
+
     public function isValidateCode(): bool
     {
         return !$this->getToken()->isExpired() && $this->getToken()->isEqualWith($this->request->code);
