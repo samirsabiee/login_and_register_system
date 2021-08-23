@@ -46,4 +46,10 @@ class TwoFactorController extends Controller
             redirect()->route('home')->with('twoFactorActivated', true) :
             back()->with('invalidCode', true);
     }
+
+    public function deactivate(): RedirectResponse
+    {
+        $this->twoFactorAuthentication->deactivate(auth()->user());
+        return back()->with('twoFactorDeactivated', true);
+    }
 }
