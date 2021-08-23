@@ -3,18 +3,21 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use App\Models\TwoFactor;
+use App\Http\Requests\ConfirmTwoFactorCodeRequest;
 use App\Services\Auth\TwoFactorAuthentication;
 use Illuminate\Http\RedirectResponse;
 
 class TwoFactorController extends Controller
 {
 
+    protected TwoFactorAuthentication $twoFactorAuthentication;
+
     /**
      * TwoFactorController constructor.
      */
-    public function __construct()
+    public function __construct(TwoFactorAuthentication $twoFactorAuthentication)
     {
+        $this->twoFactorAuthentication = $twoFactorAuthentication;
         $this->middleware('auth');
     }
 
@@ -23,10 +26,10 @@ class TwoFactorController extends Controller
         return view('auth.two-factor.toggle');
     }
 
-    public function activate(TwoFactorAuthentication $twoFactorAuthentication): RedirectResponse
+    public function activate(): RedirectResponse
     {
-        $response = $twoFactorAuthentication->requestCode(auth()->user());
-        return $response === $twoFactorAuthentication::CODE_SENT ?
+        $response = $this->twoFactorAuthentication->requestCode(auth()->user());
+        return $response === $this->twoFactorAuthentication::CODE_SENT ?
             redirect()->route('auth.two.factor.code.form') :
             back()->with('cantSendCode', true);
     }
@@ -34,5 +37,13 @@ class TwoFactorController extends Controller
     public function showEnterCodeForm()
     {
         return view('auth.two-factor.enter-code');
+    }
+
+    public function confirmCode(ConfirmTwoFactorCodeRequest $request): RedirectResponse
+    {
+        $response = $this->twoFactorAuthentication->activate();
+        return $response === $this->twoFactorAuthentication::ACTIVATED ?
+            redirect()->route('home')->with('twoFactorActivated', true) :
+            back()->with('invalidCode', true);
     }
 }
