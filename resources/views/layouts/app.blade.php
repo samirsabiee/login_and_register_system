@@ -62,6 +62,11 @@
 @endif
 
 
+@if(session('twoFactorDeactivated'))
+    <div class="alert alert-success text-center">@lang('public.twoFactorDeactivated')</div>
+@endif
+
+
 <div class="container">
     @yield('content')
 </div>
