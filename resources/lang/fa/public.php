@@ -65,4 +65,5 @@ return [
     'authentication code activate text' => 'احراز هویت دو مرحله ای روی شماره :number فعال شده است برای غیر فعال سازی روی دکمه زیر کلیک کنید',
     'deactivate' => 'غیر فعال سازی',
     'twoFactorDeactivated' => 'احراز هویت دو مرحله ای با موفقیت غیر فعال شد',
+    'resentCode' => 'کد احراز هویت مجددا ارسال شد'
 ];
