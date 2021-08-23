@@ -27,4 +27,11 @@ class ConfirmTwoFactorCodeRequest extends FormRequest
             'code' => ['required', 'numeric', 'digits:4']
         ];
     }
+
+    public function messages(): array
+    {
+        return [
+            'code.digits' => __('public.invalidCode'),
+        ];
+    }
 }
