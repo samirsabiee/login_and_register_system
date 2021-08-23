@@ -10,6 +10,7 @@
         "doctrine/dbal": "^3.1",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.3",
+        "jalallinux/ippanel-php-rest-sdk": "^1.0",
         "laravel/framework": "^8.54",
         "laravel/sanctum": "^2.11",
         "laravel/socialite": "^5.2",

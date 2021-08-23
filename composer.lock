@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d1d17eb0d5aa5108c31b7dd1e7dce711",
+    "content-hash": "0c20d2d871be35ee279fa4097d1de597",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -1299,6 +1299,50 @@
                 "source": "https://github.com/guzzle/psr7/tree/2.0.0"
             },
             "time": "2021-06-30T20:03:07+00:00"
+        },
+        {
+            "name": "jalallinux/ippanel-php-rest-sdk",
+            "version": "1.0.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jalallinux/ippanel-php-rest-sdk.git",
+                "reference": "2e889b68ed8540a04bae54e57640a34725c1a408"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jalallinux/ippanel-php-rest-sdk/zipball/2e889b68ed8540a04bae54e57640a34725c1a408",
+                "reference": "2e889b68ed8540a04bae54e57640a34725c1a408",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "php": ">=5.3.3"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^5"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "IPPanel\\": "src/IPPanel/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-2-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "JalalLinuX",
+                    "email": "smjjalalzadeh93@gmail.com"
+                }
+            ],
+            "description": "IPPanel REST API client",
+            "homepage": "https://github.com/jalallinux/ippanel-php-rest-sdk",
+            "support": {
+                "source": "https://github.com/jalallinux/ippanel-php-rest-sdk/tree/1.0.5"
+            },
+            "time": "2021-08-04T08:18:18+00:00"
         },
         {
             "name": "laravel/framework",
