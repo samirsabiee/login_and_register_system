@@ -12,4 +12,16 @@ trait HasTwoFactor
     {
         return $this->hasOne(TwoFactor::class);
     }
+
+    public function activeTwoFactor()
+    {
+        $this->has_two_factor = true;
+        $this->save();
+    }
+
+    public function deactivateTwoFactor()
+    {
+        $this->has_two_factor = false;
+        $this->save();
+    }
 }
