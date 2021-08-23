@@ -14,7 +14,7 @@
                        placeholder="@lang('public.enter code')" aria-label="@lang('public.enter code')">
 
                 @include('partials.validation-errors')
-                <a href="#" class="mt-2 mb-2">@lang('public.isCodeReceived')</a>
+                <a href="{{ route('auth.two.factor.resent') }}" class="mt-2 mb-2">@lang('public.isCodeReceived')</a>
                 <input type="submit" class="btn btn-primary mt-2" value="@lang('public.submit code')"/>
             </form>
         </div>
