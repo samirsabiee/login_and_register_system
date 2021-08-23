@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\ConfirmTwoFactorCodeRequest;
 use App\Http\Requests\LoginRequest;
 use App\Models\User;
 use App\Providers\RouteServiceProvider;
@@ -128,5 +129,13 @@ class LoginController extends Controller
     public function showCodeForm()
     {
         return view('auth.two-factor.login-code');
+    }
+
+    public function confirmCode(ConfirmTwoFactorCodeRequest $request): RedirectResponse
+    {
+        $response = $this->twoFactorAuthentication->login();
+        return $response === $this->twoFactorAuthentication::AUTHENTICATED ?
+            redirect()->route('home') :
+            back()->with('invalidCode', true);
     }
 }
