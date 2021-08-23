@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\TwoFactor;
 use App\Services\Auth\TwoFactorAuthentication;
+use Illuminate\Http\RedirectResponse;
 
 class TwoFactorController extends Controller
 {
@@ -21,9 +23,16 @@ class TwoFactorController extends Controller
         return view('auth.two-factor.toggle');
     }
 
-    public function activate(TwoFactorAuthentication $twoFactorAuthentication)
+    public function activate(TwoFactorAuthentication $twoFactorAuthentication): RedirectResponse
     {
-        $twoFactorAuthentication->requestCode(auth()->user());
-        //dd($response);
+        $response = $twoFactorAuthentication->requestCode(auth()->user());
+        return $response === $twoFactorAuthentication::CODE_SENT ?
+            redirect()->route('auth.two.factor.code.form') :
+            back()->with('cantSendCode', true);
+    }
+
+    public function showEnterCodeForm()
+    {
+        return view('auth.two-factor.enter-code');
     }
 }
