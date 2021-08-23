@@ -2,10 +2,10 @@
 
 namespace App\Models;
 
+use App\Jobs\SendSms;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use phpDocumentor\Reflection\Types\This;
 
 class TwoFactor extends Model
 {
@@ -26,5 +26,15 @@ class TwoFactor extends Model
             'user_id' => $user->id,
             'code' => mt_rand(1000, 9999)
         ]);
+    }
+
+    public function getCodeForSendAttribute()
+    {
+        return __('public.CodeForSend', ['code' => $this->code]);
+    }
+
+    public function send()
+    {
+        SendSms::dispatch(new \App\Services\Providers\SendSms($this->user, $this->code_for_send));
     }
 }
