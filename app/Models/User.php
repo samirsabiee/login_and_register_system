@@ -61,4 +61,14 @@ class User extends Authenticatable
     {
         SendEmail::dispatch(new \App\Services\Providers\SendEmail($this, new RestPasswordEmail($this, $token)));
     }
+
+    public function isTwoFactorActivate()
+    {
+        return $this->has_two_factor;
+    }
+
+    public function hasPhoneNumber(): bool
+    {
+        return !is_null($this->phone_number);
+    }
 }
