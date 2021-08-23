@@ -17,8 +17,8 @@ class TwoFactorController extends Controller
      */
     public function __construct(TwoFactorAuthentication $twoFactorAuthentication)
     {
+        $this->middleware('auth')->except('resent');
         $this->twoFactorAuthentication = $twoFactorAuthentication;
-        $this->middleware('auth');
     }
 
     public function showToggleForm()
@@ -51,5 +51,11 @@ class TwoFactorController extends Controller
     {
         $this->twoFactorAuthentication->deactivate(auth()->user());
         return back()->with('twoFactorDeactivated', true);
+    }
+
+    public function resent(): RedirectResponse
+    {
+        $response = $this->twoFactorAuthentication->resent();
+        return back()->with('resentCode', true);
     }
 }
