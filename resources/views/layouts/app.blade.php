@@ -49,6 +49,10 @@
     <div class="alert alert-danger text-center">@lang('public.invalidToken')</div>
 @endif
 
+@if(session('cantSendCode'))
+    <div class="alert alert-danger text-center">@lang('public.cantSendCode')</div>
+@endif
+
 
 <div class="container">
     @yield('content')
