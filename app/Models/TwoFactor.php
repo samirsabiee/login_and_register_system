@@ -11,6 +11,8 @@ class TwoFactor extends Model
 {
     use HasFactory;
 
+    const CODE_EXPIRY = 60; //secondes
+
     protected $table = 'two_factor';
     protected $fillable = ['user_id', 'code'];
 
@@ -36,5 +38,15 @@ class TwoFactor extends Model
     public function send()
     {
         SendSms::dispatch(new \App\Services\Providers\SendSms($this->user, $this->code_for_send));
+    }
+
+    public function isExpired(): bool
+    {
+        return $this->created_at->diffInSeconds(now()) > self::CODE_EXPIRY;
+    }
+
+    public function isEqualWith(string $code): bool
+    {
+        return $this->code == $code;
     }
 }
