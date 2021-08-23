@@ -53,6 +53,14 @@
     <div class="alert alert-danger text-center">@lang('public.cantSendCode')</div>
 @endif
 
+@if(session('twoFactorActivated'))
+    <div class="alert alert-success text-center">@lang('public.twoFactorActivated')</div>
+@endif
+
+@if(session('invalidCode'))
+    <div class="alert alert-danger text-center">@lang('public.invalidCode')</div>
+@endif
+
 
 <div class="container">
     @yield('content')
