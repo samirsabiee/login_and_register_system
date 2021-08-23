@@ -4,12 +4,14 @@
 namespace App\Services\Auth;
 
 
+use App\Jobs\SendSms;
 use App\Models\TwoFactor;
 use App\Models\User;
 use Request;
 
 class TwoFactorAuthentication
 {
+    const CODE_SENT = 'code.sent';
     protected $request;
 
     /**
@@ -21,9 +23,10 @@ class TwoFactorAuthentication
         $this->request = $request;
     }
 
-    public function requestCode(User $user)
+    public function requestCode(User $user): string
     {
         $code = TwoFactor::generateCodeFor($user);
-        dd($code);
+        $code->send();
+        return self::CODE_SENT;
     }
 }
