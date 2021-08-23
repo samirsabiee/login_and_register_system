@@ -5,6 +5,7 @@
         <div class="card-header">
             @lang('public.two factor authentication')
         </div>
+        @include('partials.validation-errors')
         @if(auth()->user()->phone_number)
             <div class="card-body d-flex flex-column justify-content-center align-items-center">
                 <p class="text-center">@lang('public.two factor authentication content',['number' => auth()->user()->phone_number])</p>
